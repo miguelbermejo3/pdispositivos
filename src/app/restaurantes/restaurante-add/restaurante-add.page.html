@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{titulo_pagina}}</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/restaurantes"></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-input placeholder="Escribe un nombre" type="text" #nombre></ion-input>
+        <ion-input placeholder="Escribe la URL de la imagen" type="text" #image></ion-input>
+        
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button color="primary" (click)="guardarRestaurante(nombre,image)">Guardar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

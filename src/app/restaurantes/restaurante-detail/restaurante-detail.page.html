@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-button slot="start" color="medium">
+      <ion-back-button defaultHref="/restaurantes"></ion-back-button>
+    </ion-button>
+    <ion-button slot="end" color="danger" (click)="deleteRestaurante()">
+      <ion-icon name="trash-outline" ></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center" color="dark">{{mirestaurante.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="mirestaurante.imageURL"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center"  >{{mirestaurante.nombre}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h5 class="ion-text-center" >DESCRIPCIÓN:</h5>
+        <p class="ion-text-center" >{{mirestaurante.descripcion}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h5 class="ion-text-center" >NÚMERO DE TENEDORES:</h5>
+        <ion-img [src]="mirestaurante.numeroTenedoresURL" style="height: 14vh; max-width: 14vh; margin-left: 47%;" ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+        <h5 class="ion-text-center">COMENTARIOS:</h5>
+        <ion-list *ngIf="(mirestaurante.comentarios!=undefined)&&(mirestaurante.comentarios.length>0);else nocomentarios">
+          <ion-item *ngFor="let comentarios of mirestaurante.comentarios" >
+            <ion-label class="ion-text-center">
+            {{comentarios}}
+          </ion-label>
+          </ion-item>
+        </ion-list>
+        <ng-template #nocomentarios>
+          <p class="ion-text-center">No hay comentarios para este Restaurante...</p>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
