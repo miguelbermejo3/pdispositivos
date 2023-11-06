@@ -30,5 +30,8 @@ export class RestaurantesPage implements OnInit {
 this.router.navigate(['/nuevo-restaurante']);
 
   }
+  goToHome(){
+    this.router.navigate(['/home']);
+  }
 
 }
