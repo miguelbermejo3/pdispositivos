@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-card *ngFor="let contact of contacts">
+      <ion-img [src]="contact.avatar"></ion-img>
+      <ion-card-content>
+        <p>"contact.first_name"</p>
+        <p>{{contact.last_name}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
